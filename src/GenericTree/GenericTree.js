@@ -1,6 +1,6 @@
 import GenericTreeNode from "./GenericTreeNode";
 
-export default class NaryTree {
+export default class GenericTree {
     constructor(data = null) {
         this.root = data ? this.buildTree(data) : null;
     }
