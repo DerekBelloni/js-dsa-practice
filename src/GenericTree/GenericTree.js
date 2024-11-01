@@ -37,12 +37,30 @@ export default class GenericTree {
         return this.root === null;
     }
 
-    levelOrderTraversal() {
+    levelOrderTraversal(source) {
+        let result = [];
+        if (!source.value) {
+            return result;
+        }
+        
+        let queue = [];
+        let temp = [];
 
-    }
-
-    inOrderTraveral() {
-
+        queue.push(source);
+        
+        while (queue.length) {
+            let n = queue.length;
+            for (let i = 0; i < n; i++) {
+                let curr = queue.shift();
+                temp.push(curr.value);
+                for (let child of curr.children) {
+                    queue.push(child);
+                }
+            }
+            result.push(...temp);
+            temp = [];
+        }
+        return result;
     }
 
     preOrderTraversalWalk(source, out) {

@@ -30,3 +30,13 @@ describe('Post Order Traversal, Medium Tree', () => {
         expect(result).toStrictEqual(expectedResult);
     })
 })
+
+describe('Level Order Traversal, Medium Tree', () => {
+    test('should return expected traversal result', () => {
+        const tree = new GenericTree(mediumTree);
+        const root = tree.getRoot();
+        const result = tree.levelOrderTraversal(root);
+        const expectedResult = traversalExpectedResults.levelOrderMediumTree;
+        expect(result).toStrictEqual(expectedResult);
+    }) 
+})
