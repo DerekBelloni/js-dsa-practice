@@ -41,11 +41,43 @@ export default class GenericTree {
 
     }
 
-    preOrderTraversal() {
+    inOrderTraveral() {
 
     }
 
-    postOrderTraversal() {
+    preOrderTraversalWalk(source, out) {
+        if (!source.value) {
+            return out;
+        }
 
+        out.push(source.value);
+
+        source.children.forEach((child) => {
+            this.preOrderTraversalWalk(child, out);
+        });
+
+        return out;
+    }
+
+    preOrderTraversal(source) {
+        return this.preOrderTraversalWalk(source, []);
+    }
+
+    postOrderTraversalWalk(source, out) {
+        if (!source.value) {
+            return out;
+        }
+
+        source.children.forEach((child) => {
+            this.postOrderTraversalWalk(child, out);
+        })
+
+        out.push(source.value);
+
+        return out;
+    }
+
+    postOrderTraversal(source) {
+        return this.postOrderTraversalWalk(source, [])
     }
 }
