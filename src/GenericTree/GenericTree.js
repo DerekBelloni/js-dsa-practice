@@ -28,7 +28,7 @@ export default class GenericTree {
         return node.value;
     }
 
-    getChildren() {
+    getChildren(node) {
         if (!node) return [];
         return node.children;
     }

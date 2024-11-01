@@ -6,5 +6,7 @@ describe('Tree Construction', () => {
         const tree = new GenericTree(singleNodeTree);
         const root = tree.getRoot();
         expect(tree.getValue(root)).toBe(1);
+        expect(tree.getChildren(root.children.length)).toHaveLength(0);
+        expect(tree.isEmpty()).toBeFalsy();
     })
 })
